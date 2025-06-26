@@ -1,0 +1,53 @@
+return {
+  {
+    'ibhagwan/fzf-lua',
+    cmd = 'FzfLua',
+    opts = {
+      fzf_colors = true,
+      fzf_opts = {
+        ['--no-scrollbar'] = true,
+      },
+      defaults = {
+        prompt = '   ',
+        file_icons = 'mini',
+        formatter = 'path.dirname_first',
+      },
+      files = {
+        cwd_prompt = false,
+        hidden = false,
+      },
+    },
+    keys = {
+      { '<leader>fb', '<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>' },
+      { '<leader>fc', function() require 'fzf-lua'.files { cwd = vim.fn.stdpath 'config' } end },
+      { '<leader>ff', '<cmd>FzfLua files<cr>' },
+      { '<leader>fg', '<cmd>FzfLua git_files<cr>' },
+      { '<leader>fr', '<cmd>FzfLua oldfiles<cr>' },
+      { '<leader>fR', function() require 'fzf-lua'.oldfiles { cwd = vim.uv.cwd() } end },
+
+      { '<leader>gc', '<cmd>FzfLua git_commits<cr>' },
+      { '<leader>gs', '<cmd>FzfLua git_status<cr>' },
+
+      { '<leader>s"', '<cmd>FzfLua registers<cr>' },
+      { '<leader>sa', '<cmd>FzfLua autocmds<cr>' },
+      { '<leader>sb', '<cmd>FzfLua grep_curbuf<cr>' },
+      { '<leader>sc', '<cmd>FzfLua command_history<cr>' },
+      { '<leader>sC', '<cmd>FzfLua commands<cr>' },
+      { '<leader>sd', '<cmd>FzfLua diagnostics_document<cr>' },
+      { '<leader>sD', '<cmd>FzfLua diagnostics_workspace<cr>' },
+      { '<leader>sg', '<cmd>FzfLua live_grep<cr>' },
+      { '<leader>sh', '<cmd>FzfLua help_tags<cr>' },
+      { '<leader>sH', '<cmd>FzfLua highlights<cr>' },
+      { '<leader>sj', '<cmd>FzfLua jumps<cr>' },
+      { '<leader>sk', '<cmd>FzfLua keymaps<cr>' },
+      { '<leader>sl', '<cmd>FzfLua loclist<cr>' },
+      { '<leader>sm', '<cmd>FzfLua marks<cr>' },
+      { '<leader>sM', '<cmd>FzfLua man_pages<cr>' },
+      { '<leader>sR', '<cmd>FzfLua resume<cr>' },
+      { '<leader>sq', '<cmd>FzfLua quickfix<cr>' },
+      { '<leader>sw', '<cmd>FzfLua grep_cword<cr>' },
+      { '<leader>sw', '<cmd>FzfLua grep_visual<cr>', mode = 'v' },
+      { '<leader>uC', '<cmd>FzfLua colorschemes<cr>' },
+    },
+  },
+}
