@@ -5,8 +5,10 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-      transparent_background = true,
-      no_italic = true,
+      show_end_of_buffer = true,
+      styles = {
+        keywords = { 'italic' },
+      },
       custom_highlights = {
         FzfLuaTitle = { link = 'Constant' },
         FzfLuaPreviewTitle = { link = 'Title' },
@@ -16,9 +18,7 @@ return {
         IblIndent = { link = 'NonText' },
         MiniIndentscopeSymbol = { link = 'Special' },
       },
-      integrations = {
-        mason = true,
-      },
+      auto_integrations = true,
     },
     config = function(_, opts)
       require 'catppuccin'.setup(opts)
