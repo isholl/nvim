@@ -11,6 +11,13 @@ return {
       },
       formatters_by_ft = {
         lua = { 'stylua' },
+        javascript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        markdown = { 'prettier' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        vue = { 'prettier' },
+        yaml = { 'prettier' },
       },
       format_on_save = function(bufnr)
         local disable_filetypes = {}
