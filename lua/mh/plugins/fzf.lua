@@ -13,6 +13,7 @@ return {
         formatter = 'path.dirname_first',
       },
       files = {
+        fd_opts = [[--color never --type f --type l --exclude {.git,node_modules}]],
         cwd_prompt = false,
         hidden = false,
       },
