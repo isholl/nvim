@@ -4,7 +4,7 @@ return {
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     dependencies = {
       'mason-org/mason.nvim',
-      { 'mason-org/mason-lspconfig.nvim', opts = {} },
+      'mason-org/mason-lspconfig.nvim',
       'saghen/blink.cmp',
     },
     opts = {
@@ -43,6 +43,9 @@ return {
             },
           },
         },
+        cssls = { mason = false },
+        html = { mason = false },
+        eslint = { mason = false },
       },
     },
     config = function(_, opts)
@@ -192,4 +195,6 @@ return {
       { '<leader>cm', '<cmd>Mason<cr>' },
     },
   },
+
+  { import = 'mh.plugins.lsp' },
 }

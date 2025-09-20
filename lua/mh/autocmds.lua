@@ -1,12 +1,10 @@
-local autocmd = vim.api.nvim_create_autocmd
-
-autocmd('TextYankPost', {
+vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.hl.on_yank()
   end,
 })
 
-autocmd('FileType', {
+vim.api.nvim_create_autocmd('FileType', {
   pattern = {
     'checkhealth',
     'help',
@@ -20,5 +18,18 @@ autocmd('FileType', {
         pcall(vim.api.nvim_buf_delete, args.buf, { force = true })
       end, { buffer = args.buf, silent = true })
     end)
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {
+    'css',
+    'json',
+    'jsonc',
+  },
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
   end,
 })
