@@ -1,7 +1,6 @@
 return {
   {
     'saghen/blink.cmp',
-    build = 'cargo build --release',
     event = 'InsertEnter',
     dependencies = { 'rafamadriz/friendly-snippets' },
     opts = {
@@ -34,7 +33,6 @@ return {
         },
       },
       cmdline = { enabled = false },
-      fuzzy = { implementation = 'lua' },
       signature = { enabled = true },
     },
   },
