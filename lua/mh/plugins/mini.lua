@@ -10,6 +10,7 @@ return {
   {
     'echasnovski/mini.files',
     dependencies = { 'mini.icons' },
+    lazy = vim.fn.argc(-1) == 0,
     opts = {
       windows = {
         width_focus = 30,
