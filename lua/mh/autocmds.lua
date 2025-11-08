@@ -33,3 +33,9 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.softtabstop = 4
   end,
 })
+
+-- ensure terminal cursor resets to vertical bar (|) when exiting Neovim
+-- comment out or remove this autocmd if don't use this cursor style
+vim.api.nvim_create_autocmd('VimLeave', {
+  command = 'set guicursor=a:ver1',
+})

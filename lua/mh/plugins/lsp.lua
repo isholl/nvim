@@ -18,6 +18,7 @@ return {
       },
       servers = {
         lua_ls = {
+          mason = false, -- not supported install lua_ls via mason in android
           settings = {
             Lua = {
               workspace = {

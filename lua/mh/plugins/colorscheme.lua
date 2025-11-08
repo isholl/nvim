@@ -6,9 +6,7 @@ return {
     priority = 1000,
     opts = {
       show_end_of_buffer = true,
-      styles = {
-        keywords = { 'italic' },
-      },
+      no_italic = true, -- disable italics since they look unclear or cut off in Termux
       custom_highlights = {
         FzfLuaTitle = { link = 'Constant' },
         FzfLuaPreviewTitle = { link = 'Title' },
