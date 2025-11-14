@@ -14,6 +14,7 @@ return {
       indent = { enable = true },
       ensure_installed = {
         'bash',
+        'blade',
         'css',
         'diff',
         'gitcommit',
@@ -28,6 +29,8 @@ return {
         'jsonc',
         'luadoc',
         'luap',
+        'php',
+        'php_only',
         'printf',
         'regex',
         'toml',

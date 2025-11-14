@@ -18,6 +18,8 @@ return {
         typescriptreact = { 'prettier' },
         vue = { 'prettier' },
         yaml = { 'prettier' },
+        blade = { 'blade-formatter' },
+        php = { 'php_cs_fixer' },
       },
       format_on_save = function(bufnr)
         local disable_filetypes = {}

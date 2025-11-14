@@ -44,8 +44,20 @@ return {
           },
         },
         cssls = { mason = false },
-        html = { mason = false },
+        html = {
+          mason = false,
+          filetypes = { 'blade', 'html', 'templ' },
+          settings = {
+            html = {
+              format = {
+                indentInnerHtml = true,
+              },
+            },
+          },
+        },
         eslint = { mason = false },
+        laravel_ls = { mason = false },
+        phpactor = {},
       },
     },
     config = function(_, opts)

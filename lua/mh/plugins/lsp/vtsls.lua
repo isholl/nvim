@@ -5,7 +5,6 @@ return {
       servers = {
         vtsls = {
           settings = {
-            complete_function_calls = true,
             vtsls = {
               enableMoveToFileCodeAction = true,
               autoUseWorkspaceTsdk = true,
@@ -17,17 +16,16 @@ return {
               },
             },
             typescript = {
-              updateImportsOnFileMove = { enabled = 'always' },
-              suggest = {
-                completeFunctionCalls = true,
+              preferences = {
+                quoteStyle = 'single',
+                useAliasesForRenames = false,
               },
-              inlayHints = {
-                enumMemberValues = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                parameterNames = { enabled = 'literals' },
-                parameterTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                variableTypes = { enabled = false },
+              updateImportsOnFileMove = { enabled = 'always' },
+            },
+            javascript = {
+              preferences = {
+                quoteStyle = 'single',
+                useAliasesForRenames = false,
               },
             },
           },
