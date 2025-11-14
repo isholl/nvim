@@ -1,10 +1,11 @@
 return {
   {
     'neovim/nvim-lspconfig',
+    commit = '4bc481b',
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     dependencies = {
-      'mason-org/mason.nvim',
-      'mason-org/mason-lspconfig.nvim',
+      { 'mason-org/mason.nvim', version = '1.11.0' },
+      { 'mason-org/mason-lspconfig.nvim', version = '1.32.0' },
       'saghen/blink.cmp',
     },
     opts = {

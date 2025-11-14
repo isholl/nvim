@@ -1,6 +1,7 @@
 return {
   {
     'lewis6991/gitsigns.nvim',
+    commit = '1b0350a',
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     opts = {
       signs = {
