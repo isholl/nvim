@@ -1,7 +1,6 @@
 return {
   {
     'ibhagwan/fzf-lua',
-    commit = '70a1c1d',
     cmd = 'FzfLua',
     opts = {
       fzf_colors = true,

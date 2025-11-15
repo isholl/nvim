@@ -1,7 +1,6 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    commit = '94ea4f4',
     lazy = false,
     build = ':TSUpdate',
     cmd = { 'TSInstall', 'TSUpdate', 'TSUpdateSync' },

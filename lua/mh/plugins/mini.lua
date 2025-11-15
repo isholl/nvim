@@ -1,7 +1,6 @@
 return {
   {
     'echasnovski/mini.ai',
-    version = '0.16.0',
     event = 'BufReadPost',
     opts = {
       n_lines = 500,
@@ -10,7 +9,6 @@ return {
 
   {
     'echasnovski/mini.files',
-    version = '0.16.0',
     dependencies = { 'mini.icons' },
     lazy = vim.fn.argc(-1) == 0,
     opts = {
@@ -23,11 +21,10 @@ return {
     },
   },
 
-  { 'echasnovski/mini.icons', version = '0.16.0', opts = {} },
+  { 'echasnovski/mini.icons', opts = {} },
 
   {
     'echasnovski/mini.indentscope',
-    version = '0.16.0',
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
     opts = {
       draw = {
@@ -55,7 +52,6 @@ return {
 
   {
     'echasnovski/mini.pairs',
-    version = '0.16.0',
     event = { 'InsertEnter', 'CmdLineEnter' },
     opts = {
       modes = {

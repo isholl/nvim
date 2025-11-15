@@ -1,12 +1,10 @@
 return {
   {
     'neovim/nvim-lspconfig',
-    commit = '4bc481b',
-    event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
+    event = { 'BufReadPre', 'BufNewFile', 'BufWritePre' },
     dependencies = {
-      { 'mason-org/mason.nvim', version = '1.11.0' },
-      { 'mason-org/mason-lspconfig.nvim', version = '1.32.0' },
-      'saghen/blink.cmp',
+      'mason-org/mason.nvim',
+      'mason-org/mason-lspconfig.nvim',
     },
     opts = {
       capabilities = {
@@ -18,6 +16,7 @@ return {
         },
       },
       servers = {
+        stylua = { enabled = false },
         lua_ls = {
           settings = {
             Lua = {
@@ -57,7 +56,8 @@ return {
           },
         },
         eslint = { mason = false },
-        laravel_ls = { mason = false },
+        tailwindcss = {},
+        laravel_ls = {},
         phpactor = {},
       },
     },
@@ -155,46 +155,38 @@ return {
         severity_sort = true,
       }
 
-      local servers = opts.servers
-      local blink = require 'blink.cmp'
-      local capabilities = vim.tbl_deep_extend(
-        'force',
-        {},
-        vim.lsp.protocol.make_client_capabilities(),
-        blink.get_lsp_capabilities(),
-        opts.capabilities or {}
-      )
+      local mason_all = vim.tbl_keys(require 'mason-lspconfig.mappings'.get_mason_map().lspconfig_to_package) or {}
+      local mason_exclude = {}
 
-      local function setup(server)
-        local server_opts = vim.tbl_deep_extend(
-          'force',
-          {},
-          { capabilities = capabilities },
-          servers[server] or {}
-        )
+      local function configure(server)
+        local sopts = opts.servers[server]
 
-        if server_opts.enabled == false then
+        sopts = sopts ==  true and {} or (not sopts) and { enabled = false } or sopts
+        if sopts.enabled == false then
+          mason_exclude[#mason_exclude+1] = server
           return
         end
 
-        require 'lspconfig'[server].setup(server_opts)
-      end
+        sopts.capabilities = vim.tbl_deep_extend(
+          'force',
+          sopts.capabilities or {},
+          opts.capabilities or {}
+        )
 
-      local ensure_installed = {}
-      for server, server_opts in pairs(servers) do
-        if server_opts.enabled ~= false then
-          if server_opts.mason == false then
-            setup(server)
-          else
-            table.insert(ensure_installed, server)
-          end
+        local use_mason = sopts.mason ~= false and vim.tbl_contains(mason_all, server)
+
+        vim.lsp.config(server, sopts)
+        if not use_mason then
+          vim.lsp.enable(server)
         end
+
+        return use_mason
       end
 
+      local ensure_installed = vim.tbl_filter(configure, vim.tbl_keys(opts.servers)) or {}
       require 'mason-lspconfig'.setup {
         ensure_installed = ensure_installed,
-        automatic_installation = false,
-        handlers = { setup },
+        automatic_enable = { exclude = mason_exclude },
       }
     end,
   },

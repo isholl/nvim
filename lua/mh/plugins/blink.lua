@@ -1,9 +1,9 @@
 return {
   {
     'saghen/blink.cmp',
-    version = '1.2.0',
+    version = '*',
     event = 'InsertEnter',
-    dependencies = { 'rafamadriz/friendly-snippets', commit = '572f566' },
+    dependencies = { 'rafamadriz/friendly-snippets' },
     opts = {
       keymap = {
         preset = 'enter',
