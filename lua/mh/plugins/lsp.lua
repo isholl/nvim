@@ -44,17 +44,7 @@ return {
           },
         },
         cssls = { mason = false },
-        html = {
-          mason = false,
-          filetypes = { 'blade', 'html', 'templ' },
-          settings = {
-            html = {
-              format = {
-                indentInnerHtml = true,
-              },
-            },
-          },
-        },
+        html = { mason = false },
         eslint = { mason = false },
         tailwindcss = {},
         laravel_ls = {},
