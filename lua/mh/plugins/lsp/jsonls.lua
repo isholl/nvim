@@ -20,5 +20,5 @@ return {
     },
   },
 
-  { 'b0o/SchemaStore.nvim', commit = '6af1062' },
+  { 'b0o/SchemaStore.nvim' },
 }
